@@ -1,0 +1,163 @@
+---
+---
+
+<article class="article">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#">Testing</a></li>
+            <li><span>Pruebas No Funcionales</span></li>
+        </ol>
+    </nav>
+
+    <header class="article-header">
+        <div class="badge-group">
+            <span class="badge badge-primary">Intermedio</span>
+        </div>
+        <h1 class="article-title">Pruebas No Funcionales</h1>
+        <p class="article-description">
+            Resumen de los principales tipos de pruebas no funcionales: rendimiento, usabilidad, seguridad y recuperación. Aquí se explica qué son, cómo se implementan y por qué son importantes.
+        </p>
+        <div class="article-meta">
+            <time datetime="2025-10-20">Última actualización: 20 de octubre, 2025</time>
+            <span class="reading-time">8 min de lectura</span>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <section id="prueba-rendimiento">
+            <h2>Prueba de Rendimiento</h2>
+            <p>
+                Son métodos de prueba que se utilizan para evaluar el comportamiento de un producto bajo condiciones de uso específicas, como cargas de trabajo, condiciones de red y volumen de datos. El objetivo es medir rapidez, estabilidad, escalabilidad y capacidad de respuesta.
+            </p>
+
+            <h3>¿Cómo funciona?</h3>
+            <p>Se simulan cargas de trabajo reales o incrementales sobre el sistema y se observan métricas como:</p>
+            <ul>
+                <li>Tiempo de respuesta</li>
+                <li>Throughput (rendimiento): cuántas transacciones se procesan en un tiempo</li>
+                <li>Uso de recursos (CPU, memoria, I/O)</li>
+                <li>Estabilidad bajo carga</li>
+            </ul>
+
+            <h3>Implementación</h3>
+            <ol>
+                <li>Definición de objetivos (por ejemplo, tiempo de respuesta máximo aceptable).</li>
+                <li>Diseño de escenarios de prueba que reflejen el uso real.</li>
+                <li>Selección de herramientas de simulación (JMeter, Gatling, LoadRunner, etc.).</li>
+                <li>Ejecución controlada en distintos niveles de carga: normal, pico y estrés.</li>
+                <li>Monitoreo y recolección de datos para análisis.</li>
+                <li>Análisis de resultados y optimización (código, base de datos, arquitectura).</li>
+            </ol>
+
+            <h3>Importancia</h3>
+            <p>Permiten identificar cuellos de botella, garantizar tiempos de carga aceptables y mejorar la escalabilidad y la estabilidad antes de que los usuarios se vean afectados.</p>
+        </section>
+
+        <section id="prueba-usabilidad">
+            <h2>Prueba de Usabilidad</h2>
+            <p>
+                Se centra en la experiencia del usuario. Evalúa qué tan fácil, intuitivo y eficiente es usar la aplicación o sistema.
+            </p>
+
+            <h3>¿Cómo funciona?</h3>
+            <p>Se observa e interactúa con usuarios representativos mientras realizan tareas reales para detectar dificultades, errores y medir tiempos y satisfacción.</p>
+
+            <h3>Implementación</h3>
+            <ol>
+                <li>Definir objetivos de usabilidad (navegación, claridad, tiempos, satisfacción).</li>
+                <li>Seleccionar usuarios representativos del público objetivo.</li>
+                <li>Diseñar tareas típicas que los usuarios deben completar.</li>
+                <li>Observar y registrar comportamientos, tiempos y errores.</li>
+                <li>Recopilar retroalimentación mediante entrevistas o encuestas.</li>
+                <li>Analizar resultados y proponer mejoras de diseño.</li>
+            </ol>
+
+            <h3>Importancia</h3>
+            <p>Detecta problemas de diseño antes del lanzamiento, aumenta la satisfacción del usuario y reduce la necesidad de formación o soporte.</p>
+        </section>
+
+        <section id="prueba-seguridad">
+            <h2>Prueba de Seguridad</h2>
+            <p>
+                Evalúa si un sistema, aplicación o red es resistente frente a amenazas internas y externas. Busca proteger datos y servicios contra accesos no autorizados, alteraciones o pérdidas.
+            </p>
+
+            <h3>¿Cómo funciona?</h3>
+            <p>Incluye análisis y planificación, identificación de vulnerabilidades mediante escaneos (Nmap, Nessus, OpenVAS), pruebas de penetración y evaluación de resultados.</p>
+
+            <h3>Implementación</h3>
+            <ul>
+                <li>Análisis de alcance y recopilación de información del sistema.</li>
+                <li>Detección de vulnerabilidades y pruebas de penetración controladas.</li>
+                <li>Documentación de hallazgos, priorización por criticidad y correcciones (parches, configuración, políticas).</li>
+                <li>Aplicación en diferentes niveles: aplicaciones, redes, sistemas y servidores.</li>
+            </ul>
+
+            <h3>Importancia</h3>
+            <p>Previene ciberataques, protege información sensible, ayuda a cumplir regulaciones y mantiene la confianza de los usuarios.</p>
+        </section>
+
+        <section id="prueba-recuperacion">
+            <h2>Prueba de Recuperación</h2>
+            <p>
+                Evalúa la capacidad de un sistema para recuperarse de fallos, interrupciones o desastres y volver a operar normalmente.
+            </p>
+
+            <h3>¿Cómo funciona?</h3>
+            <p>Se simulan fallos controlados (caídas de servidores, pérdida de conectividad, fallos de base de datos) y se mide la detección, el tiempo de recuperación y la integridad de los datos.</p>
+
+            <h3>Proceso de implementación</h3>
+            <ol>
+                <li>Planificación: identificar componentes críticos, tipos de fallos y criterios de éxito (RTO/RPO).</li>
+                <li>Ejecución: provocar fallos en entornos aislados y activar procedimientos de recuperación.</li>
+                <li>Verificación: comprobar restauración de servicios y la integridad de los datos.</li>
+                <li>Mejora continua: ajustar procedimientos y automatizaciones para reducir tiempos de inactividad.</li>
+            </ol>
+
+            <h3>Importancia</h3>
+            <p>Asegura la continuidad del negocio, protege los datos y reduce costos al validar los mecanismos de respaldo y recuperación antes de un incidente real.</p>
+        </section>
+    </div>
+
+    <footer class="article-footer">
+        <div class="pagination">
+            <a href="/testing/Pruebas-cambio" class="pagination-link pagination-prev">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                <div>
+                    <span class="pagination-label">Anterior</span>
+                    <span class="pagination-title">Niveles de Prueba</span>
+                </div>
+            </a>
+            <a href="/testing/PruebasRendimiento" class="pagination-link pagination-next">
+                <div>
+                    <span class="pagination-label">Siguiente</span>
+                    <span class="pagination-title">Tipos de Pruebas</span>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+
+        <div class="feedback">
+            <p class="feedback-title">¿Te fue útil esta página?</p>
+            <div class="feedback-buttons">
+                <button class="feedback-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                    </svg>
+                    Sí
+                </button>
+                <button class="feedback-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path>
+                    </svg>
+                    No
+                </button>
+            </div>
+        </div>
+    </footer>
+</article>

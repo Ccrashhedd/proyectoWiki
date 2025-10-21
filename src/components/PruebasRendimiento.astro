@@ -1,0 +1,140 @@
+---
+---
+
+<article class="article">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#">Testing</a></li>
+            <li><span>Pruebas de Rendimiento</span></li>
+        </ol>
+    </nav>
+
+    <header class="article-header">
+        <div class="badge-group">
+            <span class="badge badge-primary">Intermedio</span>
+        </div>
+        <h1 class="article-title">Pruebas de Rendimiento</h1>
+        <p class="article-description">
+            Información sobre distintos tipos de pruebas de rendimiento: carga, estrés, escalabilidad y concurrencia. Explicaciones de su propósito, cómo se implementan y por qué son importantes.
+        </p>
+        <div class="article-meta">
+            <time datetime="2025-10-20">Última actualización: 20 de octubre, 2025</time>
+            <span class="reading-time">8 min de lectura</span>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <section id="prueba-carga">
+            <h2>Prueba de Carga</h2>
+            <p>
+                Es una prueba que evalúa el comportamiento de un sistema bajo una cantidad específica de usuarios, transacciones o peticiones simultáneas. Su objetivo es comprobar si el sistema puede manejar la carga esperada en condiciones normales y sostenidas.
+            </p>
+
+            <h3>¿Cómo funciona y su implementación?</h3>
+            <p>El proceso típicamente incluye las siguientes fases:</p>
+            <ul>
+                <li><strong>Definir objetivos y métricas:</strong> tiempo de respuesta, uso de CPU/memoria, throughput, tasa de errores.</li>
+                <li><strong>Diseñar escenarios:</strong> simular la cantidad de usuarios o transacciones esperadas con casos realistas.</li>
+                <li><strong>Ejecutar la prueba:</strong> usar herramientas como Apache JMeter, LoadRunner, Gatling o k6 para generar la carga.</li>
+                <li><strong>Monitorear:</strong> observar servidores, bases de datos y red durante la ejecución.</li>
+                <li><strong>Analizar resultados:</strong> comprobar cumplimiento de tiempos y detectar cuellos de botella.</li>
+                <li><strong>Optimizar y repetir:</strong> ajustar configuraciones, optimizar código o escalar infraestructura y volver a probar.</li>
+            </ul>
+
+            <h3>Importancia</h3>
+            <p>Verifica que el sistema mantenga estabilidad bajo la carga esperada, ayuda en la planificación de capacidad y mejora la experiencia del usuario al garantizar tiempos de respuesta consistentes.</p>
+        </section>
+
+        <section id="prueba-estres">
+            <h2>Prueba de Estrés</h2>
+            <p>
+                Evaluación del comportamiento del sistema cuando se expone a condiciones extremas de carga, por encima de los niveles normales. Busca identificar límites de capacidad, fallos y cómo se recupera el sistema.
+            </p>
+
+            <h3>¿Cómo funciona y su implementación?</h3>
+            <ol>
+                <li>Definir objetivos: qué medir (fallos, tiempos de respuesta, recuperación).</li>
+                <li>Preparar entorno y herramientas (JMeter, Gatling, LoadRunner, etc.).</li>
+                <li>Incrementar la carga progresivamente hasta sobrepasar la capacidad esperada.</li>
+                <li>Monitorear métricas clave: CPU, memoria, latencia, errores y caídas.</li>
+                <li>Analizar límites de tolerancia y comportamiento bajo fallo.</li>
+            </ol>
+
+            <h3>Importancia</h3>
+            <p>Garantiza la robustez del sistema, previene caídas en eventos de alto tráfico y permite evaluar la capacidad de recuperación tras la sobrecarga.</p>
+        </section>
+
+        <section id="pruebas-escalabilidad">
+            <h2>Pruebas de Escalabilidad</h2>
+            <p>
+                Evalúan la capacidad del sistema para mantener estabilidad y eficiencia cuando aumenta la carga de trabajo. Miden hasta qué punto la aplicación puede crecer sin perder calidad de servicio.
+            </p>
+
+            <h3>¿Cómo funciona y su implementación?</h3>
+            <p>Se simulan escenarios de carga creciente y se observan métricas como tiempo de respuesta, uso de recursos y throughput. En base a los resultados se aplican estrategias de escalado vertical u horizontal y optimizaciones.</p>
+            <p>Herramientas comunes: Apache JMeter, Gatling, k6.</p>
+
+            <h3>Importancia</h3>
+            <p>Ayuda a planificar el crecimiento del sistema, decidir cuándo añadir recursos y evitar degradación del servicio a medida que aumentan usuarios o datos.</p>
+        </section>
+
+        <section id="prueba-concurrencia">
+            <h2>Prueba de Concurrencia</h2>
+            <p>
+                Verifica el comportamiento cuando múltiples usuarios o procesos ejecutan operaciones simultáneas. Busca detectar condiciones de carrera, deadlocks, corrupción de datos o pérdida de rendimiento.
+            </p>
+
+            <h3>¿Cómo funciona y su implementación?</h3>
+            <ul>
+                <li>Diseñar casos que simulen operaciones concurrentes (lecturas/escrituras, transacciones).</li>
+                <li>Usar herramientas o pruebas en código que lancen múltiples hilos/procesos simultáneos (JMeter, Selenium Grid, tests multihilo).</li>
+                <li>Monitorear bloqueos, inconsistencias de datos, tiempos y errores de sincronización.</li>
+            </ul>
+
+            <h3>Importancia</h3>
+            <p>Detecta errores críticos en entornos multiusuario, asegura la integridad de datos y mejora la confiabilidad y rendimiento del sistema bajo uso simultáneo.</p>
+        </section>
+    </div>
+
+    <footer class="article-footer">
+        <div class="pagination">
+            <a href="/testing/PruebasnoFuncionales" class="pagination-link pagination-prev">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                <div>
+                    <span class="pagination-label">Anterior</span>
+                    <span class="pagination-title">Pruebas no funcionales</span>
+                </div>
+            </a>
+            <a href="/testing/pruebas-usabilidad" class="pagination-link pagination-next">
+                <div>
+                    <span class="pagination-label">Siguiente</span>
+                    <span class="pagination-title">Pruebas de Usabilidad</span>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+
+        <div class="feedback">
+            <p class="feedback-title">¿Te fue útil esta página?</p>
+            <div class="feedback-buttons">
+                <button class="feedback-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                    </svg>
+                    Sí
+                </button>
+                <button class="feedback-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path>
+                    </svg>
+                    No
+                </button>
+            </div>
+        </div>
+    </footer>
+</article>
