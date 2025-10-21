@@ -1,0 +1,242 @@
+---
+// Header Component
+---
+
+<header class="header">
+	<div class="header-container">
+		<div class="header-left">
+			<button class="menu-toggle" aria-label="Toggle menu">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<line x1="3" y1="12" x2="21" y2="12"></line>
+					<line x1="3" y1="6" x2="21" y2="6"></line>
+					<line x1="3" y1="18" x2="21" y2="18"></line>
+				</svg>
+			</button>
+			<div class="logo">
+				<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+					<rect width="32" height="32" rx="8" fill="url(#gradient)"/>
+					<path d="M16 8L20 12H12L16 8Z" fill="white"/>
+					<rect x="12" y="14" width="8" height="10" rx="1" fill="white"/>
+					<defs>
+						<linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+							<stop offset="0%" stop-color="#4F46E5"/>
+							<stop offset="100%" stop-color="#06B6D4"/>
+						</linearGradient>
+					</defs>
+				</svg>
+				<span class="logo-text">WikiDocs</span>
+			</div>
+		</div>
+
+		<div class="header-center">
+			<div class="search-container">
+				<svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<circle cx="11" cy="11" r="8"></circle>
+					<path d="m21 21-4.35-4.35"></path>
+				</svg>
+				<input type="search" placeholder="Buscar en la documentación..." class="search-input" />
+				<kbd class="search-kbd">Ctrl K</kbd>
+			</div>
+		</div>
+
+		<div class="header-right">
+			<nav class="nav-links">
+				<a href="#" class="nav-link">Docs</a>
+				<a href="#" class="nav-link">Guías</a>
+				<a href="#" class="nav-link">API</a>
+			</nav>
+			<button class="theme-toggle" aria-label="Toggle theme">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<circle cx="12" cy="12" r="5"></circle>
+					<line x1="12" y1="1" x2="12" y2="3"></line>
+					<line x1="12" y1="21" x2="12" y2="23"></line>
+					<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+					<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+					<line x1="1" y1="12" x2="3" y2="12"></line>
+					<line x1="21" y1="12" x2="23" y2="12"></line>
+					<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+					<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+				</svg>
+			</button>
+			<a href="#" class="github-link">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+					<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+				</svg>
+			</a>
+		</div>
+	</div>
+</header>
+
+<style>
+	.header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: var(--header-height);
+		background: var(--color-bg);
+		border-bottom: 1px solid var(--color-border);
+		z-index: 100;
+		backdrop-filter: blur(8px);
+		background: rgba(255, 255, 255, 0.95);
+	}
+
+	.header-container {
+		height: 100%;
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	.header-left {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.menu-toggle {
+		display: none;
+		background: none;
+		border: none;
+		color: var(--color-text);
+		cursor: pointer;
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		transition: background 0.2s;
+	}
+
+	.menu-toggle:hover {
+		background: var(--color-bg-tertiary);
+	}
+
+	.logo {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		font-weight: 600;
+		font-size: 1.125rem;
+		color: var(--color-text);
+	}
+
+	.logo-text {
+		white-space: nowrap;
+	}
+
+	.header-center {
+		flex: 1;
+		max-width: 600px;
+	}
+
+	.search-container {
+		position: relative;
+		width: 100%;
+	}
+
+	.search-icon {
+		position: absolute;
+		left: 1rem;
+		top: 50%;
+		transform: translateY(-50%);
+		color: var(--color-text-secondary);
+		pointer-events: none;
+	}
+
+	.search-input {
+		width: 100%;
+		padding: 0.625rem 5rem 0.625rem 2.75rem;
+		border: 1px solid var(--color-border);
+		border-radius: 0.5rem;
+		font-size: 0.875rem;
+		background: var(--color-bg-secondary);
+		color: var(--color-text);
+		transition: all 0.2s;
+	}
+
+	.search-input:focus {
+		outline: none;
+		border-color: var(--color-primary);
+		background: var(--color-bg);
+		box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+	}
+
+	.search-kbd {
+		position: absolute;
+		right: 1rem;
+		top: 50%;
+		transform: translateY(-50%);
+		padding: 0.25rem 0.5rem;
+		background: var(--color-bg);
+		border: 1px solid var(--color-border);
+		border-radius: 0.25rem;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+		font-family: monospace;
+	}
+
+	.header-right {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.nav-links {
+		display: flex;
+		gap: 1.5rem;
+		align-items: center;
+	}
+
+	.nav-link {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-secondary);
+		transition: color 0.2s;
+	}
+
+	.nav-link:hover {
+		color: var(--color-text);
+	}
+
+	.theme-toggle,
+	.github-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.5rem;
+		background: none;
+		border: none;
+		color: var(--color-text-secondary);
+		cursor: pointer;
+		border-radius: 0.5rem;
+		transition: all 0.2s;
+	}
+
+	.theme-toggle:hover,
+	.github-link:hover {
+		background: var(--color-bg-tertiary);
+		color: var(--color-text);
+	}
+
+	@media (max-width: 1024px) {
+		.nav-links {
+			display: none;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.menu-toggle {
+			display: flex;
+		}
+
+		.header-center {
+			display: none;
+		}
+
+		.logo-text {
+			display: none;
+		}
+	}
+</style>
