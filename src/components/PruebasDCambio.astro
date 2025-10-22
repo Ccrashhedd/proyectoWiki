@@ -1,0 +1,88 @@
+---
+---
+
+
+<article class="article">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#">Testing</a></li>
+            <li><a href="#">Tipos de Prueba</a></li>
+            <li><span>Pruebas relacionadas con el Cambio</span></li>
+        </ol>
+    </nav>
+
+    <header class="article-header">
+        <div class="badge-group">
+            <span class="badge badge-primary">Intermedio</span>
+        </div>
+        <h1 class="article-title">Pruebas relacionadas con el Cambio</h1>
+        <p class="article-description">
+            Descripción general de las pruebas de cambio, su propósito, tipos y mejores prácticas para garantizar que las modificaciones en el software no introduzcan errores ni afecten negativamente la funcionalidad existente.
+        </p>
+        <div class="article-meta">
+            <time datetime="2025-10-20">Última actualización: 20 de octubre, 2025</time>
+            <span class="reading-time">7 min de lectura</span>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <section id="prueba-regresion">
+            <h2>Prueba de Regresión</h2>
+            <p>
+                La prueba de regresión es un tipo de prueba de software que se realiza cada vez que se introduce un cambio en el sistema. Su objetivo principal es verificar que el cambio no haya generado defectos en las partes que ya funcionaban correctamente.
+            </p>
+
+            <h3>¿Cómo funciona?</h3>
+            <ol>
+                <li>Se reejecutan casos de prueba previamente diseñados sobre las áreas del software que podrían verse afectadas por el cambio.</li>
+                <li>Se detecta si alguna funcionalidad que antes estaba bien ahora falla.</li>
+                <li>Generalmente se apoya en herramientas de automatización, dado que puede implicar muchas repeticiones.</li>
+            </ol>
+
+            <h3>Implementación</h3>
+            <ol>
+                <li>Identificación del cambio: se analiza qué módulos o componentes fueron modificados.</li>
+                <li>Selección de casos de prueba: se eligen pruebas relevantes de regresión de la suite ya existente.</li>
+                <li>Ejecución: se corren esos casos (manual o automáticamente).</li>
+                <li>Comparación de resultados: se contrastan los resultados actuales con los anteriores.</li>
+                <li>Reporte de incidentes: si aparecen fallas, se documentan y corrigen.</li>
+            </ol>
+
+            <h3>Importancia</h3>
+            <p>La prueba de regresión es crucial para mantener la estabilidad y calidad del software a lo largo del tiempo, especialmente en entornos de desarrollo ágiles donde los cambios son frecuentes.</p>
+        
+        </section>
+
+        <section id="prueba-confirmacion">
+            <h2>Prueba de Confirmación</h2>
+            <p>
+                Las pruebas de confirmación en software son un tipo de prueba de regresión enfocada en verificar si un defecto previamente identificado y corregido ha sido realmente solucionado. Después de una corrección, se vuelven a ejecutar todos los casos de prueba que fallaron debido a ese defecto original para asegurarse de que ahora pasan, validando así la efectividad del cambio en el software.
+            </p>
+
+            <h3>¿Cómo funciona?</h3>
+            <p>Primero se detecta un defecto durante pruebas previas, luego el equipo de desarrollo corrige el código relacionado con ese defecto. Se ejecuta la prueba de confirmación únicamente sobre el módulo o funcionalidad donde estaba el error. Si pasa, el bug fue corregido, pero si falla, la corrección no funcionó o introdujo nuevos problemas.</p>
+
+            <h3>Implementación</h3>
+            <ol>
+                <li>Identificación del defecto: Cuando se detecta un bug en pruebas, se documenta en un sistema de seguimiento con pasos para reproducirlo y el resultado esperado.</li>
+                <li>Corrección del defecto: El equipo de desarrollo analiza la causa raíz y modifica el código o la configuración para resolver el problema, registrando el cambio en el control de versiones.</li>
+                <li>Preparación de la prueba: El tester prepara el mismo escenario donde ocurrió el error, usando los mismos datos o condiciones, y en algunos casos crea nuevos casos de prueba específicos.</li>
+                <li>Ejecución de la prueba: Se repiten los pasos que antes fallaron para verificar si la corrección funciona. El objetivo es confirmar que el defecto desapareció en esa funcionalidad puntual.</li>
+                <li>Evaluación de resultados: Si la prueba pasa, se confirma que la corrección fue efectiva; si falla, se devuelve al desarrollador como error reabierto.</li>
+            </ol>
+
+            <h3>Importancia</h3>
+            <p>La prueba de confirmación es esencial para garantizar la calidad del software, asegurando que los defectos se resuelvan adecuadamente y que no se comprometa la funcionalidad existente.</p>
+
+        </section>
+    </div>
+
+    <footer class="article-footer">
+        <div class="pagination">
+            <h3></h3>
+        </div>
+
+    </footer>
+
+</article>
