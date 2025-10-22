@@ -302,9 +302,28 @@
 		}
 	}
 
+	@media (max-width: 1024px) {
+		.header-container {
+			padding: 0 1rem;
+			gap: 1rem;
+		}
+
+		.header-center {
+			max-width: 400px;
+		}
+
+		.search-kbd {
+			display: none;
+		}
+	}
+
 	@media (max-width: 768px) {
 		.menu-toggle {
 			display: flex;
+		}
+
+		.header-container {
+			gap: 0.5rem;
 		}
 
 		.header-center {
@@ -313,6 +332,30 @@
 
 		.logo-text {
 			display: none;
+		}
+
+		.search-modal-content {
+			margin: 0 0.5rem;
+			max-height: 80vh;
+		}
+
+		.search-modal-header {
+			padding: 0.75rem 1rem;
+		}
+
+		.search-commands {
+			display: none;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.header-container {
+			padding: 0 0.75rem;
+		}
+
+		.theme-toggle,
+		.github-link {
+			padding: 0.375rem;
 		}
 	}
 
@@ -828,4 +871,38 @@
 
 	// Event listener para el botón de tema
 	themeToggle?.addEventListener('click', toggleTheme);
+
+	// ============================================
+	// MENÚ MÓVIL
+	// ============================================
+	
+	const menuToggle = document.querySelector('.menu-toggle');
+	const sidebar = document.querySelector('.sidebar');
+
+	menuToggle?.addEventListener('click', () => {
+		sidebar?.classList.toggle('open');
+		document.body.style.overflow = sidebar?.classList.contains('open') ? 'hidden' : '';
+	});
+
+	// Cerrar sidebar al hacer clic en un enlace (móvil)
+	document.querySelectorAll('.sidebar .nav-item').forEach(link => {
+		link.addEventListener('click', () => {
+			if (window.innerWidth <= 1024) {
+				sidebar?.classList.remove('open');
+				document.body.style.overflow = '';
+			}
+		});
+	});
+
+	// Cerrar sidebar al hacer clic fuera (móvil)
+	document.addEventListener('click', (e) => {
+		const target = e.target as HTMLElement;
+		if (window.innerWidth <= 1024 && 
+			sidebar?.classList.contains('open') &&
+			!sidebar.contains(target) &&
+			!menuToggle?.contains(target)) {
+			sidebar.classList.remove('open');
+			document.body.style.overflow = '';
+		}
+	});
 </script>
