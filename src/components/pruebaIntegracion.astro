@@ -16,31 +16,79 @@
         </div>
         <h1 class="article-title">Pruebas de Integración</h1>
         <p class="article-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aprende cómo verificar la 
-            interacción entre diferentes componentes del sistema.
+            Aprende cómo verificar la interacción entre diferentes módulos o componentes del sistema 
+            para comprobar que trabajen de forma coherente y correcta al combinarse.
         </p>
         <div class="article-meta">
             <time datetime="2025-10-20">Última actualización: 20 de octubre, 2025</time>
-            <span class="reading-time">6 min de lectura</span>
+            <span class="reading-time">8 min de lectura</span>
         </div>
     </header>
 
     <div class="article-content">
-        <section id="que-son">
-            <h2>¿Qué son las Pruebas de Integración?</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                ut labore et dolore magna aliqua.
+        <section id="definicion">
+            <h2>Definición</h2>
+            <p>0 que se encarga de verificar cómo los diferentes 
+                módulos o componentes del sistema interactúan entre sí. Su objetivo es comprobar que trabajen 
+                de forma coherente y correcta al combinarse.
             </p>
         </section>
 
-        <section id="tipos">
-            <h2>Tipos de Integración</h2>
-            <h3>Integración Big Bang</h3>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+        <section id="objetivos">
+            <h2>Objetivos Principales</h2>
+            <ul>
+                <li><strong>Detectar errores en las interfaces:</strong> Identificar problemas en la comunicación entre módulos.</li>
+                <li><strong>Verificar la transferencia de datos:</strong> Asegurar que los datos fluyan correctamente entre componentes.</li>
+                <li><strong>Validar el flujo de control:</strong> Comprobar que el sistema ejecute las operaciones en el orden correcto.</li>
+                <li><strong>Garantizar el cumplimiento funcional:</strong> Confirmar que el sistema integrado cumpla con los requisitos especificados.</li>
+            </ul>
+        </section>
 
-            <h3>Integración Incremental</h3>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+        <section id="tipos-integracion">
+            <h2>Tipos de Integración</h2>
+            
+            <h3>Big Bang</h3>
+            <p>
+                Todos los módulos se integran al mismo tiempo. Es una estrategia rápida de implementar 
+                pero difícil de depurar cuando surgen errores.
+            </p>
+            <p><strong>Ventajas:</strong> Rápida implementación, menor esfuerzo inicial.</p>
+            <p><strong>Desventajas:</strong> Difícil localizar errores, alto riesgo de fallas críticas.</p>
+
+            <h3>Incremental</h3>
+            <p>
+                Los módulos se integran poco a poco, permitiendo detectar y corregir errores de manera progresiva.
+            </p>
+            
+            <h4>Estrategias Incrementales:</h4>
+            <ul>
+                <li><strong>Ascendente (Bottom-Up):</strong> Se inicia con los módulos de bajo nivel y se van integrando hacia arriba. 
+                Requiere el uso de drivers para simular módulos superiores.</li>
+                <li><strong>Descendente (Top-Down):</strong> Se inicia con los módulos principales y se van integrando los subordinados. 
+                Requiere el uso de stubs para simular módulos inferiores.</li>
+                <li><strong>Mixta o Sandwich:</strong> Combina las estrategias ascendente y descendente, permitiendo integrar 
+                simultáneamente desde varios puntos.</li>
+            </ul>
+        </section>
+
+        <section id="proceso">
+            <h2>Proceso de Pruebas de Integración</h2>
+            <ol>
+                <li><strong>Seleccionar módulos:</strong> Identificar qué componentes se van a integrar en cada iteración.</li>
+                <li><strong>Diseñar casos de prueba:</strong> Crear escenarios que evalúen la comunicación entre módulos.</li>
+                <li><strong>Usar stubs y drivers:</strong> Implementar componentes simulados para reemplazar módulos faltantes.</li>
+                <li><strong>Ejecutar las pruebas:</strong> Correr los casos de prueba y monitorear el comportamiento del sistema.</li>
+                <li><strong>Registrar resultados:</strong> Documentar los errores encontrados y las métricas obtenidas.</li>
+                <li><strong>Corregir y repetir:</strong> Solucionar los problemas detectados y volver a ejecutar las pruebas hasta completar la integración.</li>
+            </ol>
+        </section>
+
+        <section id="herramientas">
+            <h2>Stubs y Drivers</h2>
+            <p><strong>Stubs:</strong> Son módulos simulados que reemplazan componentes subordinados que aún no están disponibles. 
+            Proporcionan respuestas predefinidas para permitir la prueba de módulos superiores.</p>
+            <p><strong>Drivers:</strong> Son módulos simulados que actúan como invocadores de módulos de bajo nivel que aún no 
+            tienen sus controladores superiores implementados.</p>
         </section>
 
         <section id="ejemplo">
@@ -56,39 +104,49 @@
                         Copiar
                     </button>
                 </div>
-                <pre class="code-content"><code>{`// Prueba de integración ejemplo
-describe('API Integration', () => {
-  it('should fetch user data', async () => {
-    const response = await api.getUser(123);
-    expect(response.status).toBe(200);
+                <pre class="code-content"><code>{`// Prueba de integración entre módulo de API y base de datos
+describe('Integración API - Database', () => {
+  it('debe guardar y recuperar datos del usuario', async () => {
+    // Crear usuario a través de la API
+    const newUser = await api.createUser({
+      name: 'Juan Pérez',
+      email: 'juan@example.com'
+    });
+    
+    // Verificar que se guardó correctamente
+    expect(newUser.id).toBeDefined();
+    expect(newUser.name).toBe('Juan Pérez');
+    
+    // Recuperar usuario desde la base de datos
+    const retrievedUser = await api.getUser(newUser.id);
+    
+    // Verificar que los datos coinciden
+    expect(retrievedUser.email).toBe('juan@example.com');
+    expect(retrievedUser.name).toBe('Juan Pérez');
+  });
+
+  it('debe manejar errores de conexión', async () => {
+    // Simular falla en la base de datos
+    await expect(api.getUserWithBrokenDB(123))
+      .rejects.toThrow('Database connection failed');
   });
 });`}</code></pre>
             </div>
         </section>
+
+        <section id="importancia">
+            <h2>Importancia de las Pruebas de Integración</h2>
+            <ul>
+                <li><strong>Detecta errores de interacción:</strong> Identifica problemas que no son visibles en pruebas unitarias.</li>
+                <li><strong>Asegura cohesión del sistema:</strong> Garantiza que los módulos funcionen correctamente en conjunto.</li>
+                <li><strong>Mejora la estabilidad:</strong> Reduce la probabilidad de fallas en las pruebas de sistema.</li>
+                <li><strong>Valida la arquitectura:</strong> Permite verificar que el diseño y las dependencias del software sean correctos.</li>
+                <li><strong>Reduce costos:</strong> Detectar errores en esta fase es más económico que en producción.</li>
+            </ul>
+        </section>
     </div>
 
     <footer class="article-footer">
-        <div class="pagination">
-            <a href="/testing/niveles-prueba" class="pagination-link pagination-prev">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-                <div>
-                    <span class="pagination-label">Anterior</span>
-                    <span class="pagination-title">Niveles de Prueba</span>
-                </div>
-            </a>
-            <a href="/testing/tipos-pruebas" class="pagination-link pagination-next">
-                <div>
-                    <span class="pagination-label">Siguiente</span>
-                    <span class="pagination-title">Tipos de Pruebas</span>
-                </div>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            </a>
-        </div>
-
         <div class="feedback">
             <p class="feedback-title">¿Te fue útil esta página?</p>
             <div class="feedback-buttons">

@@ -14,81 +14,180 @@
         <div class="badge-group">
             <span class="badge badge-primary">Intermedio</span>
         </div>
-        <h1 class="article-title">Niveles de Pruebas</h1>
+        <h1 class="article-title">Niveles de Prueba de Software</h1>
         <p class="article-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aprende cómo verificar la 
-            interacción entre diferentes componentes del sistema.
+            Los niveles de prueba son las diferentes etapas del proceso de verificación y validación del software, 
+            cada una con un propósito y alcance específico. Su objetivo principal es detectar errores lo antes posible, 
+            garantizando que cada componente, módulo y sistema funcione correctamente antes de ser entregado al usuario final.
         </p>
         <div class="article-meta">
             <time datetime="2025-10-20">Última actualización: 20 de octubre, 2025</time>
-            <span class="reading-time">6 min de lectura</span>
+            <span class="reading-time">12 min de lectura</span>
         </div>
     </header>
 
     <div class="article-content">
-        <section id="que-son">
-            <h2>¿Qué son las Pruebas de Integración?</h2>
+        <section id="pruebas-unitarias">
+            <h2>Pruebas Unitarias</h2>
+            
+            <h3>Definición</h3>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                ut labore et dolore magna aliqua.
+                Son el primer nivel de prueba y se enfocan en verificar el correcto funcionamiento de las unidades 
+                individuales de código, como funciones, métodos o clases.
             </p>
+
+            <h3>Objetivo</h3>
+            <p>
+                Detectar errores en las partes más pequeñas del programa antes de integrarlas con otros módulos.
+            </p>
+
+            <h3>Características</h3>
+            <ul>
+                <li>Se realizan por los desarrolladores.</li>
+                <li>Se ejecutan automáticamente mediante frameworks como JUnit, NUnit o PHPUnit.</li>
+                <li>Aíslan cada unidad del resto del sistema.</li>
+                <li>Validan la lógica interna del código.</li>
+            </ul>
+
+            <h3>Importancia</h3>
+            <ul>
+                <li>Detectan errores de forma temprana.</li>
+                <li>Reducen el costo de corrección.</li>
+                <li>Mejoran la calidad y mantenibilidad del código.</li>
+                <li>Sirven como documentación viva del comportamiento esperado de cada unidad.</li>
+            </ul>
         </section>
 
-        <section id="tipos">
-            <h2>Tipos de Integración</h2>
-            <h3>Integración Big Bang</h3>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+        <section id="seccion-pruebas-integracion">
+            <h2>Pruebas de Integración</h2>
+            
+            <h3>Definición</h3>
+            <p>
+                Son un tipo de prueba que se encarga de verificar cómo los diferentes módulos o componentes del sistema 
+                interactúan entre sí. Su objetivo es comprobar que trabajen de forma coherente y correcta al combinarse.
+            </p>
 
-            <h3>Integración Incremental</h3>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+            <h3>Objetivo</h3>
+            <ul>
+                <li>Detectar errores en las interfaces y comunicación entre módulos.</li>
+                <li>Verificar la transferencia de datos y el flujo de control entre componentes.</li>
+                <li>Garantizar que el sistema integrado cumpla con los requisitos funcionales.</li>
+            </ul>
+
+            <h3>Tipos de Integración</h3>
+            <p><strong>Big Bang:</strong> todos los módulos se integran al mismo tiempo. Es rápida pero difícil de depurar.</p>
+            <p><strong>Incremental:</strong> los módulos se integran poco a poco, y puede ser:</p>
+            <ul>
+                <li><strong>Ascendente:</strong> inicia con módulos de bajo nivel.</li>
+                <li><strong>Descendente:</strong> inicia con los módulos principales.</li>
+                <li><strong>Mixta (Sandwich):</strong> combina ambas estrategias.</li>
+            </ul>
+
+            <h3>Proceso</h3>
+            <ol>
+                <li>Seleccionar los módulos a integrar.</li>
+                <li>Diseñar casos de prueba centrados en la comunicación entre ellos.</li>
+                <li>Usar stubs y drivers para simular componentes faltantes.</li>
+                <li>Ejecutar pruebas y registrar resultados.</li>
+                <li>Corregir errores y repetir hasta completar la integración.</li>
+            </ol>
+
+            <h3>Importancia</h3>
+            <ul>
+                <li>Detecta errores en la interacción entre componentes.</li>
+                <li>Asegura que los módulos funcionen correctamente en conjunto.</li>
+                <li>Mejora la estabilidad antes de las pruebas de sistema.</li>
+                <li>Permite validar la arquitectura y dependencias del software.</li>
+            </ul>
         </section>
 
-        <section id="ejemplo">
-            <h2>Ejemplo Práctico</h2>
+        <section id="pruebas-sistema">
+            <h2>Pruebas de Sistema</h2>
+            
+            <h3>Definición</h3>
+            <p>
+                Son una fase del aseguramiento de la calidad en la que se evalúa el sistema completo e integrado 
+                para comprobar que cumple con los requisitos especificados.
+            </p>
+
+            <h3>Objetivo</h3>
+            <p>
+                Analizar el comportamiento general del sistema y su interacción con otros sistemas o entornos.
+            </p>
+
+            <h3>Proceso</h3>
+            <ol>
+                <li>Diseñar casos de prueba basados en los requisitos del sistema.</li>
+                <li>Ejecutarlos en un entorno que simule las condiciones de producción.</li>
+                <li>Validar los resultados obtenidos.</li>
+            </ol>
+
+            <h3>Aspectos Evaluados</h3>
+            <ul>
+                <li>Funcionalidades</li>
+                <li>Rendimiento</li>
+                <li>Seguridad</li>
+                <li>Usabilidad</li>
+                <li>Compatibilidad</li>
+                <li>Recuperación ante fallos</li>
+            </ul>
+
+            <h3>Importancia</h3>
+            <ul>
+                <li>Aseguran que el sistema completo funcione correctamente.</li>
+                <li>Permiten detectar defectos no vistos en fases anteriores.</li>
+                <li>Reducen el riesgo de fallos en producción.</li>
+            </ul>
+        </section>
+
+        <section id="pruebas-aceptacion">
+            <h2>Pruebas de Aceptación</h2>
+            
+            <h3>Definición</h3>
+            <p>
+                Son la fase final del proceso de pruebas, donde se verifica que el sistema cumple con los requisitos 
+                del negocio y las expectativas del usuario. Por lo general, las realizan los usuarios finales o clientes.
+            </p>
+
+            <h3>Objetivo</h3>
+            <p>
+                Asegurar que el producto esté listo para su entrega y uso real.
+            </p>
+
+            <h3>Proceso</h3>
+            <ul>
+                <li>Desarrollar criterios de aceptación basados en los requisitos funcionales y de negocio.</li>
+                <li>Los usuarios ejecutan casos de prueba para validar la funcionalidad.</li>
+                <li>Se realizan en un entorno controlado que simula condiciones de producción.</li>
+                <li>Pueden incluir: Pruebas alfa, Pruebas beta, Pruebas de usuario (UAT).</li>
+            </ul>
+
+            <h3>Importancia</h3>
+            <ul>
+                <li>Garantizan que el sistema está listo para su despliegue.</li>
+                <li>Involucran a los usuarios en la validación final.</li>
+                <li>Permiten identificar defectos o mejoras antes de la entrega.</li>
+                <li>Reducen el riesgo de rechazo o problemas después del lanzamiento.</li>
+            </ul>
+        </section>
+
+        <section id="resumen">
+            <h2>Resumen de los Niveles de Prueba</h2>
             <div class="code-block">
                 <div class="code-header">
-                    <span class="code-lang">javascript</span>
-                    <button class="code-copy">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copiar
-                    </button>
+                    <span class="code-lang">tabla comparativa</span>
                 </div>
-                <pre class="code-content"><code>{`// Prueba de integración ejemplo
-describe('API Integration', () => {
-  it('should fetch user data', async () => {
-    const response = await api.getUser(123);
-    expect(response.status).toBe(200);
-  });
-});`}</code></pre>
+                <pre class="code-content"><code>{`Nivel de Prueba  | Realiza            | Enfoque Principal                  | Objetivo Clave
+----------------|--------------------|------------------------------------|------------------------------------------
+Unitarias       | Desarrolladores    | Funciones o módulos individuales   | Verificar la lógica interna del código
+Integración     | QA / Devs          | Comunicación entre módulos         | Validar interfaces y dependencias
+Sistema         | Equipo de QA       | Sistema completo integrado         | Validar requisitos funcionales y no funcionales
+Aceptación      | Usuario / Cliente  | Uso real del sistema               | Confirmar cumplimiento de necesidades del negocio`}</code></pre>
             </div>
         </section>
     </div>
 
     <footer class="article-footer">
-        <div class="pagination">
-            <a href="/testing/niveles-prueba" class="pagination-link pagination-prev">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-                <div>
-                    <span class="pagination-label">Anterior</span>
-                    <span class="pagination-title">Niveles de Prueba</span>
-                </div>
-            </a>
-            <a href="/testing/tipos-pruebas" class="pagination-link pagination-next">
-                <div>
-                    <span class="pagination-label">Siguiente</span>
-                    <span class="pagination-title">Tipos de Pruebas</span>
-                </div>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            </a>
-        </div>
-
         <div class="feedback">
             <p class="feedback-title">¿Te fue útil esta página?</p>
             <div class="feedback-buttons">

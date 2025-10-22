@@ -40,6 +40,20 @@ const { title = 'Wiki Moderna' } = Astro.props;
 		--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 	}
 
+	/* Modo Oscuro */
+	[data-theme="dark"] {
+		--color-primary: #6366F1;
+		--color-primary-dark: #818CF8;
+		--color-secondary: #22D3EE;
+		--color-bg: #0F172A;
+		--color-bg-secondary: #1E293B;
+		--color-bg-tertiary: #334155;
+		--color-text: #F1F5F9;
+		--color-text-secondary: #94A3B8;
+		--color-border: #334155;
+		--color-border-hover: #475569;
+	}
+
 	html,
 	body {
 		margin: 0;
@@ -50,6 +64,7 @@ const { title = 'Wiki Moderna' } = Astro.props;
 		font-family: var(--font-sans);
 		background-color: var(--color-bg);
 		color: var(--color-text);
+		transition: background-color 0.3s ease, color 0.3s ease;
 	}
 	
 	*,
@@ -80,3 +95,27 @@ const { title = 'Wiki Moderna' } = Astro.props;
 		color: var(--color-primary-dark);
 	}
 </style>
+
+<script>
+	// Inicializar tema desde localStorage o preferencia del sistema
+	const initTheme = () => {
+		const savedTheme = localStorage.getItem('theme');
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+			document.documentElement.setAttribute('data-theme', 'dark');
+		} else {
+			document.documentElement.setAttribute('data-theme', 'light');
+		}
+	};
+
+	// Ejecutar inmediatamente para evitar flash
+	initTheme();
+
+	// Escuchar cambios en las preferencias del sistema
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+		if (!localStorage.getItem('theme')) {
+			document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+		}
+	});
+</script>
