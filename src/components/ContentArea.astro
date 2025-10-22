@@ -4,6 +4,8 @@ import PruebaIntegracion from './pruebaIntegracion.astro';
 import PruebasnoFuncionales from './PruebasnoFuncionales.astro';
 import PruebasRendimiento from './PruebasRendimiento.astro';
 import PruebasUsabilidad from './PruebasUsabilidad.astro';
+import TipoDPrueba from './TipoDPrueba.astro';
+import PruebasDCambio from './PruebasDCambio.astro';
 ---
 
 <main class="content-area">
@@ -28,41 +30,11 @@ import PruebasUsabilidad from './PruebasUsabilidad.astro';
     </div>
     
     <div id="tipos-pruebas">
-        <article class="article">
-            <header class="article-header">
-                <h1 class="article-title">Tipos de Pruebas</h1>
-                <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </header>
-            <div class="article-content">
-                <section>
-                    <h2>Pruebas Funcionales</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </section>
-                <section>
-                    <h2>Pruebas No Funcionales</h2>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                </section>
-            </div>
-        </article>
+        <TipoDPrueba />
     </div>
     
     <div id="pruebas-cambio">
-        <article class="article">
-            <header class="article-header">
-                <h1 class="article-title">Pruebas Relacionadas con el Cambio</h1>
-                <p class="article-description">Lorem ipsum dolor sit amet.</p>
-            </header>
-            <div class="article-content">
-                <section>
-                    <h2>Pruebas de Regresión</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </section>
-                <section>
-                    <h2>Pruebas de Confirmación</h2>
-                    <p>Sed do eiusmod tempor incididunt ut labore.</p>
-                </section>
-            </div>
-        </article>
+        <PruebasDCambio />
     </div>
     
     <div id="pruebas-no-funcionales">
